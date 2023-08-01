@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataPilot</title>
+</head>
+<body>
+    <h1>Welcome to DataPilot</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="sql_query" rows="10" cols="80" required>{{ sql_query|default:'' }}</textarea>
+        <br>
+        <input type="submit" value="Execute">
+    </form>
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    {% if rows %}
+    <h2>Result:</h2>
+    <table border="1">
+        {% for row in rows %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
