@@ -4,7 +4,8 @@
     <title>DataPilot</title>
 </head>
 <body>
-    <h1>Welcome to DataPilot</h1>
+    {% if user.is_authenticated %}
+    <h1>Welcome to DataPilot, {{ user.username }}!</h1>
     <form method="post">
         {% csrf_token %}
         <textarea name="sql_query" rows="10" cols="80" required>{{ sql_query|default:'' }}</textarea>
@@ -25,6 +26,9 @@
         </tr>
         {% endfor %}
     </table>
+    {% endif %}
+    {% else %}
+    <p>Please <a href="{% url 'account_login' %}">login</a> to use iSQLplus Clone.</p>
     {% endif %}
 </body>
 </html>
