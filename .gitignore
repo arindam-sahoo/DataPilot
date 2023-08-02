@@ -1,6 +1,9 @@
 # Virtual Environment
 .venv
 
+# Project Test Users' Database
+*.db
+
 # Django #
 *.log
 *.pot
