@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import connection
+from django.contrib.auth import logout
 from .utils import assign_database
 
 def home(request):
@@ -30,3 +31,8 @@ def database_assignment(request):
     database_name = assign_database(user)
 
     return render(request, 'datapilot_app/database_assigned.html', {'database_name': database_name})
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('account_login')
