@@ -17,6 +17,9 @@ def create_connection(database_path):
 def execute_query(connection, query):
     try:
         cursor = connection.cursor()
+        if query.strip().split()[0].upper() == "DESC":
+            table_name = query.strip().split()[1][:-1]
+            query = f"PRAGMA table_info({table_name});"
         cursor.execute(query)
         connection.commit()  # Commit the changes made to the database
         return cursor
