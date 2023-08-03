@@ -1,81 +1,94 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+:root {
+    --primary: #007bff;
+    --secondary: #17a2b8;
+    --accent: #ffc107;
+    --background: #f8f9fa;
+    --text: #333333;
+    --error: #dc3545;
+    --dark_background: #1e1e1e;
+    --dark_text: #f8f8f8;
 }
 
-header {
-    background-color: #007BFF;
-    padding: 10px;
-    color: white;
-    text-align: center;
-}
-
-h1 {
+* {
+    padding: 0;
     margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
 }
 
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100vw;
+    max-width: 1300px;
+    margin-top: 30px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    height: 90vh;
+    text-align: center;
 }
 
-.query-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+.dashboard {
+    text-align: initial;
 }
 
-textarea {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
+.disp-para {
+    padding-bottom: 50px;
 }
 
-input[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-    border: none;
+.btn,
+.login-btn {
+    color: var(--background);
+    background-color: var(--secondary);
+    display:inline-block;
+    min-width:100px;
     padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px black;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-input[type="submit"]:hover {
-    background-color: #0056b3;
+.error-mssg {
+    color: var(--error);
 }
 
-.result {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-height: 300px;
-    overflow: auto;
+.exe-btn {
+    background-color: var(--primary);
+    font-weight: 800;
+    border: none;
+    width: 140px;
+}
+
+.btns {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.logout-btn {
+    text-align: center;
+}
+
+.theme-btn {
+    border: none;
+    font-size: 16px;
+    margin: 0 20px;
+}
+
+.cmd {
+    resize: none;
+    margin: 10px 0;
 }
 
 table {
-    width: 100%;
     border-collapse: collapse;
+    width: 100%;
 }
 
-th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-.error {
-    color: red;
+td {
+    border: 1px solid;
+    padding: 0 5px;
 }

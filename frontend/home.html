@@ -7,12 +7,15 @@
 </head>
 
 <body>
-    <!-- {% if user.is_authenticated %} -->
+    {% if user.is_authenticated %}
         <div class="container dashboard">
             <h1>Welcome to DataPilot, {{ user.username }}!</h1>
-            <a href="{% url 'logout' %}" class="btn logout-btn">Logout</a>
+            <div class="btns">
+                <a href="{% url 'logout' %}" class="btn logout-btn">Logout</a>
+                <!-- <button class="btn theme-btn theme-toggle">Toggle</button> -->
+            </div>
             <form method="post">
-                <!-- {% csrf_token %} -->
+                {% csrf_token %}
                 <textarea name="sql_query" rows="10" cols="80" required class="cmd">{{ sql_query|default:'' }}</textarea>
                 <br>
                 <input type="submit" value="Execute" class="btn exe-btn">
@@ -39,7 +42,7 @@
         <div class="container">
             <h1>Welcome to DataPilot</h1>
             <p class="disp-para">Please login to use DataPilot</p>
-            <a href="#" class="login-btn">Login</a>
+            <a href="{% url 'account_login' %}" class="login-btn">Login</a>
         </div>
     {% endif %}
 </body>
