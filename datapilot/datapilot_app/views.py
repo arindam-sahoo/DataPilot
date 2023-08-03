@@ -37,6 +37,12 @@ def home(request):
 
             try:
                 conn = create_connection(database_path)
+                cols = []
+                if sql_query.strip().split()[0].upper() == "SELECT":
+                    table_name = sql_query.strip().split()[-1][:-1]
+                    col_tups = execute_query(conn, f"PRAGMA table_info({table_name});")
+                    for col in col_tups.fetchall():
+                        cols.append(col[1])
                 cursor = execute_query(conn, sql_query)
                 if cursor is not None:
                     rows = cursor.fetchall()
@@ -47,7 +53,9 @@ def home(request):
                 return render(request, 'datapilot_app/home.html', {'error_message': error_message})
 
             conn.close()
-            return render(request, 'datapilot_app/home.html', {'rows': rows, 'sql_query': sql_query})
+            if not cols:
+                cols = []
+            return render(request, 'datapilot_app/home.html', {'cols':cols,'rows': rows, 'sql_query': sql_query})
 
         else:
             return redirect('account_login')
