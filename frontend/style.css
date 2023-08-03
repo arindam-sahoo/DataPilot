@@ -28,12 +28,56 @@
     text-align: center;
 }
 
+.dashboard {
+    text-align: initial;
+}
+
+.disp-para {
+    padding-bottom: 50px;
+}
+
+.btn,
 .login-btn {
     color: var(--background);
     background-color: var(--secondary);
+    display:inline-block;
+    min-width:100px;
     padding: 10px 20px;
     border-radius: 50px;
     box-shadow: 0 0 10px black;
     text-decoration: none;
     font-weight: 600;
+}
+
+.error-mssg {
+    color: var(--error);
+}
+
+.exe-btn {
+    background-color: var(--primary);
+    font-weight: 800;
+    border: none;
+    width: 140px;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+}
+
+.cmd {
+    resize: none;
+    margin: 10px 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1px solid;
+    padding: 0 5px;
 }

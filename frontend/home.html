@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>DataPilot</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    {% if user.is_authenticated %}
-    <h1>Welcome to DataPilot, {{ user.username }}!</h1>
-    <a href="{% url 'logout' %}">Logout</a>
-    <form method="post">
-        {% csrf_token %}
-        <textarea name="sql_query" rows="10" cols="80" required>{{ sql_query|default:'' }}</textarea>
-        <br>
-        <input type="submit" value="Execute">
-    </form>
-    {% if error_message %}
-    <p style="color: red;">{{ error_message }}</p>
-    {% endif %}
-    {% if rows %}
-    <h2>Result:</h2>
-    <table border="1">
-        {% for row in rows %}
-        <tr>
-            {% for value in row %}
-            <td>{{ value }}</td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
+    <!-- {% if user.is_authenticated %} -->
+        <div class="container dashboard">
+            <h1>Welcome to DataPilot, {{ user.username }}!</h1>
+            <a href="{% url 'logout' %}" class="btn logout-btn">Logout</a>
+            <form method="post">
+                <!-- {% csrf_token %} -->
+                <textarea name="sql_query" rows="10" cols="80" required class="cmd">{{ sql_query|default:'' }}</textarea>
+                <br>
+                <input type="submit" value="Execute" class="btn exe-btn">
+            </form>
+            
+            {% if error_message %}
+                <p class="error-mssg">{{ error_message }}</p>
+            {% endif %}
+        
+            {% if rows %}
+                <h2>Result:</h2>
+                <table>
+                    {% for row in rows %}
+                        <tr>
+                        {% for value in row %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        </div>
     {% else %}
-    <p>Please <a href="{% url 'account_login' %}">login</a> to use DataPilot.</p>
+        <div class="container">
+            <h1>Welcome to DataPilot</h1>
+            <p class="disp-para">Please login to use DataPilot</p>
+            <a href="#" class="login-btn">Login</a>
+        </div>
     {% endif %}
 </body>
+
 </html>

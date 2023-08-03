@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Database Assigned</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <h1>Database Assigned!</h1>
-    <p>Your database name is: {{ database_name }}</p>
-    <p><a href="{% url 'home' %}">Go to DataPilot</a></p>
+    <div class="container">
+        <h1>Database Assigned!</h1>
+        <p class="disp-para">Your database name is: {{ database_name }}</p>
+        <a href="#" class="btn">Go to DataPilot</a>
+    </div>
 </body>
+
 </html>
