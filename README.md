@@ -19,13 +19,14 @@ The DataPilot is a web application developed using the Django web framework. It 
 - User-specific database assignment: Each user is assigned a unique database file for executing SQL queries.
 - SQL Query Execution: Execute SQL queries and view the results in a tabular format.
 - Error handling: Informative error messages for invalid queries or potential issues.
+- Database Table Information (DESC): Users can retrieve table information, including column names and properties.
 
 ## Technologies Used
 
 - Python: The programming language used for backend development.
 - Django: The web framework responsible for request handling and application management.
 - SQLite: The database management system used to store user data.
-- django-allauth: A package for user authentication and email verification.
+- django-allauth: A package for user authentication.
 - HTML/CSS: Markup and styling languages for the user interface.
 
 ## Getting Started
