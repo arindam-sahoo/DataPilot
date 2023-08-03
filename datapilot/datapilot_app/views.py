@@ -53,8 +53,6 @@ def home(request):
                 return render(request, 'datapilot_app/home.html', {'error_message': error_message})
 
             conn.close()
-            if not cols:
-                cols = []
             return render(request, 'datapilot_app/home.html', {'cols':cols,'rows': rows, 'sql_query': sql_query})
 
         else:
