@@ -45,12 +45,14 @@
                     {% endfor %}
                 </table>
             {% endif %}
+            <p class="note">* DataPilot is only recommended for Educational Purposes</p>
         </div>
     {% else %}
         <div class="container">
             <h1>Welcome to DataPilot</h1>
             <p class="disp-para">Please login to use DataPilot</p>
             <a href="{% url 'account_login' %}" class="login-btn">Login</a>
+            <p class="note">* DataPilot is only recommended for Educational Purposes</p>
         </div>
     {% endif %}
 </body>

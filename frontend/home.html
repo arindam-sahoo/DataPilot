@@ -12,7 +12,7 @@
             <h1>Welcome to DataPilot, {{ user.username }}!</h1>
             <div class="btns">
                 <a href="{% url 'logout' %}" class="btn logout-btn">Logout</a>
-                <!-- <button class="btn theme-btn theme-toggle">Toggle</button> -->
+                <button class="btn theme-btn theme-toggle">Toggle</button>
             </div>
             <form method="post">
                 {% csrf_token %}
@@ -37,12 +37,15 @@
                     {% endfor %}
                 </table>
             {% endif %}
+
+            <p class="note">* DataPilot is only recommended for Educational Purposes</p>
         </div>
     {% else %}
         <div class="container">
             <h1>Welcome to DataPilot</h1>
             <p class="disp-para">Please login to use DataPilot</p>
             <a href="{% url 'account_login' %}" class="login-btn">Login</a>
+            <p class="note">* DataPilot is only recommended for Educational Purposes</p>
         </div>
     {% endif %}
 </body>
